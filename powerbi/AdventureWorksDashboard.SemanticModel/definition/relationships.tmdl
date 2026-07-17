@@ -1,0 +1,20 @@
+relationship FactSales_DimDate
+	fromColumn: FactSales.OrderDate
+	toColumn: DimDate.Date
+
+relationship FactSales_DimProduct
+	fromColumn: FactSales.ProductID
+	toColumn: DimProduct.ProductID
+
+relationship FactSales_DimCustomer
+	fromColumn: FactSales.CustomerID
+	toColumn: DimCustomer.CustomerID
+
+relationship FactSales_DimTerritory
+	fromColumn: FactSales.TerritoryID
+	toColumn: DimTerritory.TerritoryID
+
+relationship FactSales_DimSalesPerson
+	fromColumn: FactSales.SalesPersonID
+	toColumn: DimSalesPerson.SalesPersonID
+

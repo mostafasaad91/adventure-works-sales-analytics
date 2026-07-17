@@ -1,0 +1,32 @@
+table DimSalesPerson
+	lineageTag: b1063218-adb8-4292-a9ea-fc42bfcf0673
+
+	column SalesPersonID
+		dataType: int64
+		isHidden
+		lineageTag: c36d614c-35b5-435d-9108-55a0214a7890
+		summarizeBy: none
+		sourceColumn: SalesPersonID
+
+	column SalesPerson
+		dataType: string
+		lineageTag: 6d6e2e4b-cef7-4b23-a992-80c4ecefd12a
+		summarizeBy: none
+		sourceColumn: SalesPerson
+
+	column CommissionPct
+		dataType: decimal
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 94ee1bc6-d7df-40c6-8272-7e67408c326b
+		summarizeBy: none
+		sourceColumn: CommissionPct
+
+	partition DimSalesPerson = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimSalesPerson"]}[Data]
+				in
+					Data
+

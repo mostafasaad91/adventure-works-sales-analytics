@@ -1,0 +1,98 @@
+table FactSales
+	lineageTag: f994071d-0062-488a-9442-614a4ce54695
+
+	column SalesOrderID
+		dataType: int64
+		isHidden
+		lineageTag: b580f26d-d42e-4816-beb7-fd0fb3a65140
+		summarizeBy: none
+		sourceColumn: SalesOrderID
+
+	column ProductID
+		dataType: int64
+		isHidden
+		lineageTag: 23efb4d9-f634-4878-b6c5-b2d230911358
+		summarizeBy: none
+		sourceColumn: ProductID
+
+	column CustomerID
+		dataType: int64
+		isHidden
+		lineageTag: 9450522d-c776-4f1d-8c0b-0239434cda0f
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+	column TerritoryID
+		dataType: int64
+		isHidden
+		lineageTag: 3984f931-66f8-4a7c-81d5-3dfe29cf7640
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+	column SalesPersonID
+		dataType: int64
+		isHidden
+		lineageTag: 8f9e14b0-b09d-4cc8-9fe2-a5f5f49d718e
+		summarizeBy: none
+		sourceColumn: SalesPersonID
+
+	column OrderDate
+		dataType: dateTime
+		isHidden
+		formatString: Short Date
+		lineageTag: d8d62874-2504-4805-9086-1e39f0d5ec5c
+		summarizeBy: none
+		sourceColumn: OrderDate
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column OnlineOrderFlag
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: aad31147-b043-4642-b53f-0f53a9fda427
+		summarizeBy: none
+		sourceColumn: OnlineOrderFlag
+
+	column SpecialOfferID
+		dataType: int64
+		isHidden
+		lineageTag: 08716bb7-9cfc-48a9-abf6-b4e0f6c26cce
+		summarizeBy: none
+		sourceColumn: SpecialOfferID
+
+	column OrderQty
+		dataType: int64
+		lineageTag: 9679aa4b-e02f-4646-adff-8397a534bf66
+		summarizeBy: sum
+		sourceColumn: OrderQty
+
+	column Revenue
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 2c450d94-89bc-4d47-97c7-3055acca9ba7
+		summarizeBy: sum
+		sourceColumn: Revenue
+
+	column Cost
+		dataType: decimal
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a7797895-4a98-4f66-b383-e3e976ca48d1
+		summarizeBy: sum
+		sourceColumn: Cost
+
+	column Profit
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: c69db6fa-6377-42be-bc4c-00c68bec389a
+		summarizeBy: sum
+		sourceColumn: Profit
+
+	partition FactSales = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="FactSales"]}[Data]
+				in
+					Data
+

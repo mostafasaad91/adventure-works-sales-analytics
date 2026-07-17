@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "736ee02130a7d9f9930c",
+  "position": {
+    "x": 545.06393861892582,
+    "y": 176.77749360613811,
+    "z": 6000,
+    "height": 89.309462915601031,
+    "width": 150.99744245524298,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "Jul 2013: online explosion — AOV collapsed",
+                    "textStyle": {
+                      "fontFamily": "Anthropic Mono, ui-monospace, monospace",
+                      "fontSize": "11pt",
+                      "color": "#666666"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,0 +1,82 @@
+table _Measures
+	lineageTag: 666d0401-e163-4609-9561-47141fb5e67a
+
+	measure 'Total Revenue' = SUM(FactSales[Revenue])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: ae246e15-1eb0-4101-b2ae-d8159b2be37f
+
+	measure 'Total Profit' = SUM(FactSales[Profit])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: bdc0e854-90f9-4a60-8077-16a86ecb84f8
+
+	measure 'Profit Margin %' = DIVIDE([Total Profit], [Total Revenue])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 536f9846-bef8-4c10-98b4-85a849c38e35
+
+	measure 'Total Orders' = DISTINCTCOUNT(FactSales[SalesOrderID])
+		formatString: #,0
+		lineageTag: 65e0bad6-50f3-483f-bb02-fc31f073e0c6
+
+	measure AOV = DIVIDE([Total Revenue], [Total Orders])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 1b99f0d0-6886-4f34-af73-3a1aeae509a3
+
+	measure 'Customer Count' = DISTINCTCOUNT(FactSales[CustomerID])
+		formatString: #,0
+		lineageTag: 95f666d9-c71d-49a7-912b-a95d350aa4d1
+
+	measure 'Revenue LY' = CALCULATE([Total Revenue], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 742b0781-5c49-40e5-b7c7-b2375c3197ed
+
+	measure 'Revenue YoY %' = DIVIDE([Total Revenue] - [Revenue LY], [Revenue LY])
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: 7bc76aea-d7e9-45a6-9f23-3ae73ef65af0
+
+	measure 'Revenue YTD' = TOTALYTD([Total Revenue], DimDate[Date])
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 50da09bf-9e91-4c60-bd43-709b561fc0bc
+
+	measure 'Running Revenue' =
+			CALCULATE(
+			    [Total Revenue],
+			    FILTER(ALL(DimDate[Date]), DimDate[Date] <= MAX(DimDate[Date]))
+			)
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: a69f1278-b425-48ad-abbf-6e89b9540c07
+
+	measure 'Online Revenue' = CALCULATE([Total Revenue], FactSales[OnlineOrderFlag] = TRUE())
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 635aa43a-2d76-4584-95ba-3b718c492c14
+
+	measure 'Store Revenue' = CALCULATE([Total Revenue], FactSales[OnlineOrderFlag] = FALSE())
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: 28907a09-351a-40f1-8ce4-cf98c347892f
+
+	measure 'Orders LY' = CALCULATE([Total Orders], SAMEPERIODLASTYEAR(DimDate[Date]))
+		formatString: #,0
+		lineageTag: 2b0cb8f1-86b3-4e66-bde8-4a447dc0adba
+
+	measure 'Selected Year Label' =
+			VAR y = SELECTEDVALUE(DimDate[Year])
+			RETURN IF(ISBLANK(y), "All Years (2011-2014)", FORMAT(y, "0"))
+		lineageTag: 57c75b59-5e83-4c77-b362-fa1f4bf23a1d
+
+	measure 'Trend Title' = "Revenue Trend — " & [Selected Year Label]
+		lineageTag: a282a997-4208-4e00-90b9-f836938cd3ad
+
+	measure 'Profitability Title' = "Product Profitability — " & [Selected Year Label]
+		lineageTag: 7ffaf369-eeb5-48a5-9eb6-3a5ee6a3438e
+
+	column Value
+		dataType: int64
+		isHidden
+		lineageTag: 03a339d2-0bf7-4926-b125-7c9a0a728af5
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: [Value]
+
+	partition _Measures = calculated
+		mode: import
+		source = {0}
+

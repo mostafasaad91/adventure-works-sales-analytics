@@ -1,0 +1,37 @@
+table DimCustomer
+	lineageTag: 3ce921c1-336e-406f-a4a2-41169bd0afd5
+
+	column CustomerID
+		dataType: int64
+		isHidden
+		lineageTag: 598b9ad1-4cee-4432-bcad-ae28ad5cea16
+		summarizeBy: none
+		sourceColumn: CustomerID
+
+	column CustomerKind
+		dataType: string
+		lineageTag: 86bb8874-a223-4bcb-8693-d7b9f3eb94c1
+		summarizeBy: none
+		sourceColumn: CustomerKind
+
+	column CustomerName
+		dataType: string
+		lineageTag: bf2296f3-90da-46d5-9edf-6788dd861749
+		summarizeBy: none
+		sourceColumn: CustomerName
+
+	column Segment
+		dataType: string
+		lineageTag: 20b43b7c-88fa-437f-9d5b-5b16814f3f78
+		summarizeBy: none
+		sourceColumn: Segment
+
+	partition DimCustomer = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimCustomer"]}[Data]
+				in
+					Data
+

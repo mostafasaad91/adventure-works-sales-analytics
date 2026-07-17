@@ -1,0 +1,105 @@
+{
+  "name": "AdventureWorks Analysis",
+  "dataColors": [
+    "#2C6FBB",
+    "#F2A104",
+    "#4CAF7D",
+    "#8E7CC3",
+    "#D95F5F",
+    "#5BA3C9",
+    "#B0855B",
+    "#7F7F7F"
+  ],
+  "foreground": "#2B2B2B",
+  "background": "#FFFFFF",
+  "tableAccent": "#2C6FBB",
+  "bad": "#D95F5F",
+  "neutral": "#F2A104",
+  "good": "#4CAF7D",
+  "textClasses": {
+    "title": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 13,
+      "color": "#2B2B2B"
+    },
+    "header": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 11,
+      "color": "#2B2B2B"
+    },
+    "label": {
+      "fontFace": "Segoe UI",
+      "fontSize": 10,
+      "color": "#5C5C5C"
+    },
+    "callout": {
+      "fontFace": "Segoe UI Semibold",
+      "fontSize": 28,
+      "color": "#2C6FBB"
+    }
+  },
+  "visualStyles": {
+    "*": {
+      "*": {
+        "background": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#FFFFFF" } },
+            "transparency": 0
+          }
+        ],
+        "border": [
+          {
+            "show": true,
+            "color": { "solid": { "color": "#E6E6E6" } },
+            "radius": 8
+          }
+        ],
+        "title": [
+          {
+            "show": true,
+            "fontColor": { "solid": { "color": "#2B2B2B" } },
+            "fontSize": 12,
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ]
+      }
+    },
+    "page": {
+      "*": {
+        "background": [
+          {
+            "color": { "solid": { "color": "#F4F6F8" } },
+            "transparency": 0
+          }
+        ]
+      }
+    },
+    "card": {
+      "*": {
+        "labels": [
+          {
+            "fontSize": 26,
+            "color": { "solid": { "color": "#2C6FBB" } },
+            "fontFamily": "Segoe UI Semibold"
+          }
+        ],
+        "categoryLabels": [
+          {
+            "fontSize": 10,
+            "color": { "solid": { "color": "#5C5C5C" } }
+          }
+        ]
+      }
+    },
+    "slicer": {
+      "*": {
+        "general": [
+          {
+            "outlineColor": { "solid": { "color": "#E6E6E6" } }
+          }
+        ]
+      }
+    }
+  }
+}

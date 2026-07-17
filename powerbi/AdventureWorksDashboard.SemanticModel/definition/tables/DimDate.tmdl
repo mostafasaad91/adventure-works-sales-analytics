@@ -1,0 +1,64 @@
+table DimDate
+	lineageTag: 97bb2209-54ac-4597-b5ed-cd63608c7b78
+	dataCategory: Time
+
+	column Date
+		dataType: dateTime
+		isKey
+		formatString: Short Date
+		lineageTag: dbf4a8d1-ecf8-492d-8da2-ae1d82bab2b6
+		summarizeBy: none
+		sourceColumn: Date
+
+	column Year
+		dataType: int64
+		formatString: 0
+		lineageTag: 37e7126a-1c09-4bc9-9106-f166ced74164
+		summarizeBy: none
+		sourceColumn: Year
+
+	column MonthNo
+		dataType: int64
+		isHidden
+		lineageTag: a363fbf4-ef2c-4f40-b9a4-41dc12d3d801
+		summarizeBy: none
+		sourceColumn: MonthNo
+
+	column MonthName
+		dataType: string
+		lineageTag: 0c34ea9a-3c4e-439b-acde-a95ac35fec61
+		summarizeBy: none
+		sourceColumn: MonthName
+		sortByColumn: YearMonthKey
+
+	column YearMonthKey
+		dataType: int64
+		isHidden
+		lineageTag: 64886077-0b5f-4185-81da-aab8768ec6e9
+		summarizeBy: none
+		sourceColumn: YearMonthKey
+
+	column QuarterNo
+		dataType: int64
+		isHidden
+		lineageTag: 8ea78455-2685-4fec-b96c-14e68e1498b9
+		summarizeBy: none
+		sourceColumn: QuarterNo
+
+	column YearQuarter
+		dataType: string
+		lineageTag: c49e383c-6780-4e10-8f2b-e583da53c6c0
+		summarizeBy: none
+		sourceColumn: YearQuarter
+
+	partition DimDate = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimDate"]}[Data]
+				in
+					Data
+
+	annotation PBI_ResultType = Table
+

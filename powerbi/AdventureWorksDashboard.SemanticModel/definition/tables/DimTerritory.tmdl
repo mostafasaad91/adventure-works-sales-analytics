@@ -1,0 +1,38 @@
+table DimTerritory
+	lineageTag: 57c501e3-a7dc-4693-9ac0-612585ae939a
+
+	column TerritoryID
+		dataType: int64
+		isHidden
+		lineageTag: e9870640-d03b-4e4d-a061-87380ee6e420
+		summarizeBy: none
+		sourceColumn: TerritoryID
+
+	column Territory
+		dataType: string
+		lineageTag: 50298cd9-0084-4937-87aa-69ad7b4f798a
+		summarizeBy: none
+		sourceColumn: Territory
+
+	column CountryCode
+		dataType: string
+		lineageTag: 49504ff6-2afd-4e59-ac7e-656e131c0a65
+		dataCategory: Country
+		summarizeBy: none
+		sourceColumn: CountryCode
+
+	column Region
+		dataType: string
+		lineageTag: 85e46974-ddab-45e5-8352-654ea54f3a25
+		summarizeBy: none
+		sourceColumn: Region
+
+	partition DimTerritory = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimTerritory"]}[Data]
+				in
+					Data
+

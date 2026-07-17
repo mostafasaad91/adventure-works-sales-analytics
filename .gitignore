@@ -1,0 +1,25 @@
+# IDE / editor caches
+.vs/
+.vscode/
+*.slnx
+*.suo
+*.wsuo
+
+# Power BI local cache & user settings (regenerated automatically)
+**/.pbi/localSettings.json
+**/.pbi/editorSettings.json
+**/.pbi/cache.abf
+*.abf
+
+# Jupyter
+.ipynb_checkpoints/
+__pycache__/
+*.pyc
+
+# Office lock files
+~$*.docx
+~$*.xlsx
+
+# OS
+Thumbs.db
+.DS_Store

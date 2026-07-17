@@ -1,0 +1,51 @@
+table DimProduct
+	lineageTag: 5a22255b-6abc-410e-8ce7-671fad72a640
+
+	column ProductID
+		dataType: int64
+		isHidden
+		lineageTag: e131bc94-de96-4244-a72b-91389414957d
+		summarizeBy: none
+		sourceColumn: ProductID
+
+	column Product
+		dataType: string
+		lineageTag: f59a5ff2-c3b1-422c-9a86-c49875bb4c6a
+		summarizeBy: none
+		sourceColumn: Product
+
+	column Subcategory
+		dataType: string
+		lineageTag: 8889feb9-2ac8-49bb-b406-552b1847607c
+		summarizeBy: none
+		sourceColumn: Subcategory
+
+	column Category
+		dataType: string
+		lineageTag: 42860fb2-ba7e-4f73-b126-445dfa0f2064
+		summarizeBy: none
+		sourceColumn: Category
+
+	column ListPrice
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: f201772c-a037-457d-b634-ef03ed4280d4
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+	column StandardCost
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: ac408b76-0878-4449-b869-73fd3d921fc5
+		summarizeBy: none
+		sourceColumn: StandardCost
+
+	partition DimProduct = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimProduct"]}[Data]
+				in
+					Data
+
