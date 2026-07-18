@@ -8,6 +8,7 @@ questions** along the way.
 > **Central question:** where does $110M in revenue come from, where does it leak (discounts,
 > losing products, churning customers), and what are the top 3 growth moves for next year?
 
+**🔴 Live interactive dashboard:** https://app.powerbi.com/view?r=eyJrIjoiODk5NTM5YjQtMTk4Ny00NGU2LWFiMzUtYTg1N2YwZDUyYWU4IiwidCI6ImI3YTMxZDI1LWYyMzMtNGM4ZC05ODM0LTdiMjVlZDVlMWU4YSIsImMiOjh9
 **Full write-up:** [docs/Executive_Summary.docx](docs/Executive_Summary.docx) (2-page findings + recommendations)
 **All 17 questions & status:** [docs/business_questions.md](docs/business_questions.md)
 
@@ -154,8 +155,10 @@ customers, geography/channels, sales team), with a status checkbox for each:
 
 ## Dashboard
 
-Open `powerbi/AdventureWorksDashboard.pbip` in Power BI Desktop (Windows auth, points at
-`.\SQLEXPRESS`, database `AdventureWorks2022`).
+**👉 [Open the live interactive dashboard](https://app.powerbi.com/view?r=eyJrIjoiODk5NTM5YjQtMTk4Ny00NGU2LWFiMzUtYTg1N2YwZDUyYWU4IiwidCI6ImI3YTMxZDI1LWYyMzMtNGM4ZC05ODM0LTdiMjVlZDVlMWU4YSIsImMiOjh9)** — no login required, opens directly in your browser.
+
+To edit or reproduce it locally: open `powerbi/AdventureWorksDashboard.pbip` in Power BI Desktop
+(Windows auth, points at `.\SQLEXPRESS`, database `AdventureWorks2022`).
 
 | Page | Focus | Key visuals |
 |---|---|---|
