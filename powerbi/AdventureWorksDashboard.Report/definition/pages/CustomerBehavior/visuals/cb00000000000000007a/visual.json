@@ -1,0 +1,38 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
+  "name": "cb00000000000000007a",
+  "position": {
+    "x": 710,
+    "y": 505,
+    "z": 6000,
+    "height": 300,
+    "width": 690,
+    "tabOrder": 6000
+  },
+  "visual": {
+    "visualType": "textbox",
+    "objects": {
+      "general": [
+        {
+          "properties": {
+            "paragraphs": [
+              {
+                "textRuns": [
+                  {
+                    "value": "61% of customers buy once and never return. Returning customers repurchase at a median of 345 days — that's the re-activation window.",
+                    "textStyle": {
+                      "fontFamily": "Anthropic Mono, ui-monospace, monospace",
+                      "fontSize": "12pt",
+                      "color": "#666666"
+                    }
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
+  }
+}

@@ -1,12 +1,12 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "47441e67021b23bf7b8e",
+  "name": "do0000000000000002a",
   "position": {
     "x": 0,
-    "y": 517.90281329923266,
+    "y": 155,
     "z": 1000,
-    "height": 382.09718670076722,
-    "width": 776.854219948849,
+    "height": 340,
+    "width": 690,
     "tabOrder": 1000
   },
   "visual": {
@@ -20,14 +20,14 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTerritory"
+                      "Entity": "DimOffer"
                     }
                   },
-                  "Property": "Territory"
+                  "Property": "OfferDescription"
                 }
               },
-              "queryRef": "DimTerritory.Territory",
-              "nativeQueryRef": "Territory",
+              "queryRef": "DimOffer.OfferDescription",
+              "nativeQueryRef": "OfferDescription",
               "active": true
             }
           ]
@@ -42,11 +42,11 @@
                       "Entity": "_Measures"
                     }
                   },
-                  "Property": "Revenue YoY %"
+                  "Property": "Profit Margin %"
                 }
               },
-              "queryRef": "_Measures.Revenue YoY %",
-              "nativeQueryRef": "Revenue YoY %"
+              "queryRef": "_Measures.Profit Margin %",
+              "nativeQueryRef": "Profit Margin %"
             }
           ]
         }
@@ -61,7 +61,7 @@
                     "Entity": "_Measures"
                   }
                 },
-                "Property": "Revenue YoY %"
+                "Property": "Profit Margin %"
               }
             },
             "direction": "Descending"
@@ -106,7 +106,7 @@
                                           "Entity": "_Measures"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "Profit Margin %"
                                     }
                                   },
                                   "Right": {
@@ -126,7 +126,7 @@
                                           "Entity": "_Measures"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "Profit Margin %"
                                     }
                                   },
                                   "Right": {
@@ -140,7 +140,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#D9534F'"
+                              "Value": "'#D95F5F'"
                             }
                           }
                         },
@@ -157,7 +157,7 @@
                                           "Entity": "_Measures"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "Profit Margin %"
                                     }
                                   },
                                   "Right": {
@@ -177,7 +177,7 @@
                                           "Entity": "_Measures"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "Profit Margin %"
                                     }
                                   },
                                   "Right": {
@@ -191,7 +191,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#2A9D6F'"
+                              "Value": "'#2C6FBB'"
                             }
                           }
                         }
@@ -214,99 +214,34 @@
         }
       ]
     },
-    "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "452367bd98f2648acea9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTerritory"
-              }
-            },
-            "Property": "Territory"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0101828e1bd967cb1e9e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Revenue YoY %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "94001e7559025eb9d0de",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimDate",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Year"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "2013L"
-                        }
-                      }
-                    ]
-                  ]
+    "visualContainerObjects": {
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
                 }
               }
             }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
+          }
         }
-      }
-    ]
+      ],
+      "title": [
+        {
+          "properties": {
+            "text": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Profit Margin % by Discount/Offer'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "drillFilterOtherVisuals": true
   }
 }

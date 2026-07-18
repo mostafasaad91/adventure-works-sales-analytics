@@ -62,6 +62,6 @@
   "settings": {
     "defaultDrillFilterOtherVisuals": true,
     "allowChangeFilterTypes": true,
-    "useEnhancedTooltips": false
+    "useEnhancedTooltips": true
   }
 }

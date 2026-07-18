@@ -18,3 +18,11 @@ relationship FactSales_DimSalesPerson
 	fromColumn: FactSales.SalesPersonID
 	toColumn: DimSalesPerson.SalesPersonID
 
+relationship FactSales_DimOrderType
+	fromColumn: FactSales.SalesOrderID
+	toColumn: DimOrderType.SalesOrderID
+
+relationship FactSales_DimOffer
+	fromColumn: FactSales.SpecialOfferID
+	toColumn: DimOffer.SpecialOfferID
+

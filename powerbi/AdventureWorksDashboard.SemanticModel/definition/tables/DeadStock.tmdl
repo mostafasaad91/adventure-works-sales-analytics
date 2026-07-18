@@ -1,0 +1,38 @@
+table DeadStock
+	lineageTag: b8c9d0e1-f2a3-4b4c-5d6e-7f8a9b0c1d2e
+
+	column Product
+		dataType: string
+		lineageTag: c9d0e1f2-a3b4-4c5d-6e7f-8a9b0c1d2e3f
+		summarizeBy: none
+		sourceColumn: Product
+
+	column ListPrice
+		dataType: decimal
+		formatString: \$#,0.00;(\$#,0.00);\$#,0.00
+		lineageTag: d0e1f2a3-b4c5-4d6e-7f8a-9b0c1d2e3f4a
+		summarizeBy: none
+		sourceColumn: ListPrice
+
+	column OnHand
+		dataType: int64
+		lineageTag: e1f2a3b4-c5d6-4e7f-8a9b-0c1d2e3f4a5b
+		summarizeBy: sum
+		sourceColumn: OnHand
+
+	column CapitalLocked
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: f2a3b4c5-d6e7-4f8a-9b0c-1d2e3f4a5b6c
+		summarizeBy: sum
+		sourceColumn: CapitalLocked
+
+	partition DeadStock = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DeadStock"]}[Data]
+				in
+					Data
+

@@ -1,52 +1,89 @@
 {
   "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.10.0/schema.json",
-  "name": "47441e67021b23bf7b8e",
+  "name": "do0000000000000004a",
   "position": {
     "x": 0,
-    "y": 517.90281329923266,
-    "z": 1000,
-    "height": 382.09718670076722,
-    "width": 776.854219948849,
-    "tabOrder": 1000
+    "y": 505,
+    "z": 3000,
+    "height": 340,
+    "width": 690,
+    "tabOrder": 3000
   },
   "visual": {
-    "visualType": "clusteredBarChart",
+    "visualType": "tableEx",
     "query": {
       "queryState": {
-        "Category": {
+        "Values": {
           "projections": [
             {
               "field": {
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "DimTerritory"
+                      "Entity": "QuotaAttainment"
+                    }
+                  },
+                  "Property": "SalesPerson"
+                }
+              },
+              "queryRef": "QuotaAttainment.SalesPerson",
+              "nativeQueryRef": "SalesPerson"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuotaAttainment"
                     }
                   },
                   "Property": "Territory"
                 }
               },
-              "queryRef": "DimTerritory.Territory",
-              "nativeQueryRef": "Territory",
-              "active": true
-            }
-          ]
-        },
-        "Y": {
-          "projections": [
+              "queryRef": "QuotaAttainment.Territory",
+              "nativeQueryRef": "Territory"
+            },
             {
               "field": {
-                "Measure": {
+                "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "_Measures"
+                      "Entity": "QuotaAttainment"
                     }
                   },
-                  "Property": "Revenue YoY %"
+                  "Property": "ActualSales"
                 }
               },
-              "queryRef": "_Measures.Revenue YoY %",
-              "nativeQueryRef": "Revenue YoY %"
+              "queryRef": "QuotaAttainment.ActualSales",
+              "nativeQueryRef": "ActualSales"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuotaAttainment"
+                    }
+                  },
+                  "Property": "Quota"
+                }
+              },
+              "queryRef": "QuotaAttainment.Quota",
+              "nativeQueryRef": "Quota"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "QuotaAttainment"
+                    }
+                  },
+                  "Property": "AttainPct"
+                }
+              },
+              "queryRef": "QuotaAttainment.AttainPct",
+              "nativeQueryRef": "AttainPct"
             }
           ]
         }
@@ -55,39 +92,25 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Column": {
                 "Expression": {
                   "SourceRef": {
-                    "Entity": "_Measures"
+                    "Entity": "QuotaAttainment"
                   }
                 },
-                "Property": "Revenue YoY %"
+                "Property": "AttainPct"
               }
             },
-            "direction": "Descending"
+            "direction": "Ascending"
           }
-        ],
-        "isDefaultSort": true
+        ]
       }
     },
     "objects": {
-      "labels": [
+      "values": [
         {
           "properties": {
-            "show": {
-              "expr": {
-                "Literal": {
-                  "Value": "true"
-                }
-              }
-            }
-          }
-        }
-      ],
-      "dataPoint": [
-        {
-          "properties": {
-            "fill": {
+            "backColor": {
               "solid": {
                 "color": {
                   "expr": {
@@ -100,13 +123,13 @@
                                 "Comparison": {
                                   "ComparisonKind": 2,
                                   "Left": {
-                                    "Measure": {
+                                    "Column": {
                                       "Expression": {
                                         "SourceRef": {
-                                          "Entity": "_Measures"
+                                          "Entity": "QuotaAttainment"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "AttainPct"
                                     }
                                   },
                                   "Right": {
@@ -120,18 +143,18 @@
                                 "Comparison": {
                                   "ComparisonKind": 3,
                                   "Left": {
-                                    "Measure": {
+                                    "Column": {
                                       "Expression": {
                                         "SourceRef": {
-                                          "Entity": "_Measures"
+                                          "Entity": "QuotaAttainment"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "AttainPct"
                                     }
                                   },
                                   "Right": {
                                     "Literal": {
-                                      "Value": "0D"
+                                      "Value": "0.9D"
                                     }
                                   }
                                 }
@@ -140,7 +163,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#D9534F'"
+                              "Value": "'#F8D7D7'"
                             }
                           }
                         },
@@ -151,18 +174,18 @@
                                 "Comparison": {
                                   "ComparisonKind": 2,
                                   "Left": {
-                                    "Measure": {
+                                    "Column": {
                                       "Expression": {
                                         "SourceRef": {
-                                          "Entity": "_Measures"
+                                          "Entity": "QuotaAttainment"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "AttainPct"
                                     }
                                   },
                                   "Right": {
                                     "Literal": {
-                                      "Value": "0D"
+                                      "Value": "0.9D"
                                     }
                                   }
                                 }
@@ -171,18 +194,18 @@
                                 "Comparison": {
                                   "ComparisonKind": 3,
                                   "Left": {
-                                    "Measure": {
+                                    "Column": {
                                       "Expression": {
                                         "SourceRef": {
-                                          "Entity": "_Measures"
+                                          "Entity": "QuotaAttainment"
                                         }
                                       },
-                                      "Property": "Revenue YoY %"
+                                      "Property": "AttainPct"
                                     }
                                   },
                                   "Right": {
                                     "Literal": {
-                                      "Value": "9999999999D"
+                                      "Value": "999999999D"
                                     }
                                   }
                                 }
@@ -191,7 +214,7 @@
                           },
                           "Value": {
                             "Literal": {
-                              "Value": "'#2A9D6F'"
+                              "Value": "'#FFFFFF'"
                             }
                           }
                         }
@@ -209,104 +232,97 @@
                   "matchingOption": 1
                 }
               }
-            ]
+            ],
+            "metadata": "QuotaAttainment.AttainPct"
+          }
+        },
+        {
+          "properties": {
+            "wordWrap": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            },
+            "fontSize": {
+              "expr": {
+                "Literal": {
+                  "Value": "10D"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "columnHeaders": [
+        {
+          "properties": {
+            "columnAdjustment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'growToFit'"
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    "visualContainerObjects": {
+      "stylePreset": [
+        {
+          "properties": {
+            "name": {
+              "expr": {
+                "Literal": {
+                  "Value": "'Sparse'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "visualHeader": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "title": [
+        {
+          "properties": {
+            "alignment": {
+              "expr": {
+                "Literal": {
+                  "Value": "'center'"
+                }
+              }
+            }
+          }
+        }
+      ],
+      "dropShadow": [
+        {
+          "properties": {
+            "show": {
+              "expr": {
+                "Literal": {
+                  "Value": "true"
+                }
+              }
+            }
           }
         }
       ]
     },
     "drillFilterOtherVisuals": true
-  },
-  "filterConfig": {
-    "filters": [
-      {
-        "name": "452367bd98f2648acea9",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimTerritory"
-              }
-            },
-            "Property": "Territory"
-          }
-        },
-        "type": "Categorical"
-      },
-      {
-        "name": "0101828e1bd967cb1e9e",
-        "field": {
-          "Measure": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "_Measures"
-              }
-            },
-            "Property": "Revenue YoY %"
-          }
-        },
-        "type": "Advanced"
-      },
-      {
-        "name": "94001e7559025eb9d0de",
-        "field": {
-          "Column": {
-            "Expression": {
-              "SourceRef": {
-                "Entity": "DimDate"
-              }
-            },
-            "Property": "Year"
-          }
-        },
-        "type": "Categorical",
-        "filter": {
-          "Version": 2,
-          "From": [
-            {
-              "Name": "d",
-              "Entity": "DimDate",
-              "Type": 0
-            }
-          ],
-          "Where": [
-            {
-              "Condition": {
-                "In": {
-                  "Expressions": [
-                    {
-                      "Column": {
-                        "Expression": {
-                          "SourceRef": {
-                            "Source": "d"
-                          }
-                        },
-                        "Property": "Year"
-                      }
-                    }
-                  ],
-                  "Values": [
-                    [
-                      {
-                        "Literal": {
-                          "Value": "2013L"
-                        }
-                      }
-                    ]
-                  ]
-                }
-              }
-            }
-          ]
-        },
-        "howCreated": "User",
-        "objects": {
-          "general": [
-            {
-              "properties": {}
-            }
-          ]
-        }
-      }
-    ]
   }
 }

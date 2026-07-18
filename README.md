@@ -162,7 +162,9 @@ Open `powerbi/AdventureWorksDashboard.pbip` in Power BI Desktop (Windows auth, p
 | **Executive Overview** | Revenue trend, growth, channel split, geography | KPI cards, revenue-vs-LY line chart with annotation, country map, online/store donut |
 | **Product Profitability** | Category/subcategory margin, worst performers | Drill-down bar (Category → Subcategory → Product), revenue-vs-margin scatter, worst-15 table |
 | **Customer Segments** | RFM segments, value concentration | Revenue-by-segment vs. count-by-segment bar pair, segment summary table |
-| **Territory & Team** | Territory growth, rep performance vs. quota | Revenue map, YoY-by-territory bar, sales rep performance table |
+| **Territory & Team** | Territory growth, rep performance | Revenue map, YoY-by-territory bar, sales rep performance table |
+| **Customer Behavior** | New vs. returning, repeat-purchase, cohort retention | One-and-done % card, new-vs-returning revenue by year, pre/post-2013 retention curve, repeat-purchase segments |
+| **Discounts & Operations** | Promotion impact, dead stock, quota, cross-sell | Margin-by-offer bar, dead-stock table, quota attainment table, top basket-affinity pairs |
 
 ### Screenshots
 

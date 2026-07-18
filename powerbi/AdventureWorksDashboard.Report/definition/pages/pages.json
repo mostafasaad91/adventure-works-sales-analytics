@@ -4,7 +4,9 @@
     "ExecutiveOverview",
     "ProductProfitability",
     "CustomerSegments",
-    "TerritoryTeam"
+    "TerritoryTeam",
+    "CustomerBehavior",
+    "DiscountsOperations"
   ],
-  "activePageName": "TerritoryTeam"
+  "activePageName": "ExecutiveOverview"
 }

@@ -1,0 +1,31 @@
+table DimOffer
+	lineageTag: d4e5f6a7-b8c9-4d0e-1f2a-3b4c5d6e7f8a
+
+	column SpecialOfferID
+		dataType: int64
+		isHidden
+		lineageTag: e5f6a7b8-c9d0-4e1f-2a3b-4c5d6e7f8a9b
+		summarizeBy: none
+		sourceColumn: SpecialOfferID
+
+	column OfferDescription
+		dataType: string
+		lineageTag: f6a7b8c9-d0e1-4f2a-3b4c-5d6e7f8a9b0c
+		summarizeBy: none
+		sourceColumn: OfferDescription
+
+	column OfferType
+		dataType: string
+		lineageTag: a7b8c9d0-e1f2-4a3b-4c5d-6e7f8a9b0c1d
+		summarizeBy: none
+		sourceColumn: OfferType
+
+	partition DimOffer = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="DimOffer"]}[Data]
+				in
+					Data
+

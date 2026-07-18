@@ -1,0 +1,48 @@
+table QuotaAttainment
+	lineageTag: a3b4c5d6-e7f8-4a9b-0c1d-2e3f4a5b6c7d
+
+	column SalesPerson
+		dataType: string
+		lineageTag: b4c5d6e7-f8a9-4b0c-1d2e-3f4a5b6c7d8e
+		summarizeBy: none
+		sourceColumn: SalesPerson
+
+	column Territory
+		dataType: string
+		lineageTag: c5d6e7f8-a9b0-4c1d-2e3f-4a5b6c7d8e9f
+		summarizeBy: none
+		sourceColumn: Territory
+
+	column ActualSales
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: d6e7f8a9-b0c1-4d2e-3f4a-5b6c7d8e9f0a
+		summarizeBy: sum
+		sourceColumn: ActualSales
+
+	column Quota
+		dataType: double
+		formatString: \$#,0;(\$#,0);\$#,0
+		lineageTag: e7f8a9b0-c1d2-4e3f-4a5b-6c7d8e9f0a1b
+		summarizeBy: sum
+		sourceColumn: Quota
+
+	column AttainPct
+		dataType: double
+		formatString: 0.0%;-0.0%;0.0%
+		lineageTag: f8a9b0c1-d2e3-4f4a-5b6c-7d8e9f0a1b2c
+		summarizeBy: sum
+		sourceColumn: AttainPct
+
+		annotation SummarizationSetBy = Automatic
+
+	partition QuotaAttainment = m
+		mode: import
+		source =
+				let
+					Source = Sql.Database("localhost\SQLEXPRESS", "AdventureWorks2022"),
+					Data = Source{[Schema="pbi",Item="QuotaAttainment"]}[Data],
+					#"Divided Attain" = Table.TransformColumns(Data, {{"AttainPct", each _ / 100, type number}})
+				in
+					#"Divided Attain"
+
