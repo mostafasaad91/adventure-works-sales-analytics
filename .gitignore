@@ -23,3 +23,7 @@ __pycache__/
 # OS
 Thumbs.db
 .DS_Store
+
+# Raw source data (large / regeneratable, kept locally only)
+*.bak
+/Excel/
