@@ -179,6 +179,10 @@ To edit or reproduce it locally: open `powerbi/AdventureWorksDashboard.pbip` in 
 |---|---|
 | ![Customer Segments](docs/screenshots/03_customer_segments.png) | ![Territory & Team](docs/screenshots/04_territory_team.png) |
 
+| Customer Behavior | Discounts & Operations |
+|---|---|
+| ![Customer Behavior](docs/screenshots/05_customer_behavior.png) | ![Discounts & Operations](docs/screenshots/06_discounts_operations.png) |
+
 ## Setup / reproduce
 
 **Prerequisites:** SQL Server (Express is fine) with the AdventureWorks2022 backup, Python 3.11+
